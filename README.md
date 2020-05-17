@@ -1,4 +1,5 @@
 # Dodatkowe przykłady na potrzeby kursu Angulara
+# Przykład Routingu i pobieraniem danych z json-server
 
 
 ## Więcej informacji:
@@ -6,8 +7,6 @@
 - blog: [https://zacznijprogramowac.net/](https://zacznijprogramowac.net/)
 - kanał YT: [https://www.youtube.com/ZacznijProgramowac](https://www.youtube.com/ZacznijProgramowac)
 
-# Otwórz ten projekt przez StackBlitz:
-...
 
 ## Wymagania projektu
 - Angular CLI & Angular > 9.0.0
