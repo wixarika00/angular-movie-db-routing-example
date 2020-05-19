@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { MovieItemComponent } from './shared/movie-item/movie-item.component';
+import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component';
 import { MovieDetailsComponent } from './pages/movies/movie-details/movie-details.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
@@ -19,7 +19,7 @@ import { MovesInCategoryComponent } from './pages/categories/movies-in-category/
     CategoriesComponent,
     PageNotFoundComponent,
     MovesInCategoryComponent,
-    MovieItemComponent,
+    MovieCoverComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [],

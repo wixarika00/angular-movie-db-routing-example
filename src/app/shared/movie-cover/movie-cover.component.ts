@@ -6,6 +6,6 @@ import { Movie } from '../../models/movie';
   templateUrl: './movie-item.component.html',
   styleUrls: ['./movie-item.component.css'],
 })
-export class MovieItemComponent {
+export class MovieCoverComponent {
   @Input() movie: Movie;
 }
