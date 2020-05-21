@@ -3,8 +3,8 @@ import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'app-movie-cover',
-  templateUrl: './movie-item.component.html',
-  styleUrls: ['./movie-item.component.css'],
+  templateUrl: './movie-cover.component.html',
+  styleUrls: ['./movie-cover.component.css'],
 })
 export class MovieCoverComponent {
   @Input() movie: Movie;
