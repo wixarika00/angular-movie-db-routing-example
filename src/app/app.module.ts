@@ -9,7 +9,7 @@ import { MovieCoverComponent } from './shared/movie-cover/movie-cover.component'
 import { MovieDetailsComponent } from './pages/movies/movie-details/movie-details.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
-import { MovesInCategoryComponent } from './pages/categories/movies-in-category/moves-in-category.component';
+import { MoviesInCategoryComponent } from './pages/categories/movies-in-category/movies-in-category.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { MovesInCategoryComponent } from './pages/categories/movies-in-category/
     MoviesComponent,
     CategoriesComponent,
     PageNotFoundComponent,
-    MovesInCategoryComponent,
+    MoviesInCategoryComponent,
     MovieCoverComponent,
   ],
   imports: [BrowserModule, HttpClientModule],

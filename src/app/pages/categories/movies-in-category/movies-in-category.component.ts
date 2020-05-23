@@ -7,10 +7,10 @@ import { Movie } from '../../../models/movie';
 
 @Component({
   selector: 'app-movies-in-category',
-  templateUrl: './moves-in-category.component.html',
-  styleUrls: ['./moves-in-category.component.css'],
+  templateUrl: './movies-in-category.component.html',
+  styleUrls: ['./movies-in-category.component.css'],
 })
-export class MovesInCategoryComponent implements OnInit {
+export class MoviesInCategoryComponent implements OnInit {
   movies: Observable<Movie[]>;
 
   constructor() {}
