@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./years.component.css']
 })
 export class YearsComponent implements OnInit {
-  private years: Observable<string[]>
+  years: Observable<string[]>
   constructor(private http: HttpService) { }
 
   ngOnInit(): void {
