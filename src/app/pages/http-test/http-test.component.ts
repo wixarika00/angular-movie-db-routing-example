@@ -55,4 +55,8 @@ export class HttpTestComponent {
   delete() {
     this.http.deleteMovie('54').subscribe();
   }
+
+  error() {
+    this.http.makeError().subscribe();
+  }
 }
