@@ -12,9 +12,8 @@ export class HttpMoviesService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<Movie[]>{
-    return this.http.get<Movie[]>(this.url).
-      pipe(tap(console.log));
+  getMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.url).pipe(tap(console.log));
   }
 
   // Dodatkowe konfiguracje w zapytaniu
@@ -24,7 +23,7 @@ export class HttpMoviesService {
   //     .pipe(tap(console.log));
   // }
 
-  postMovie(movie: Movie): Observable<Movie>{
+  postMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(this.url, movie).pipe(tap(console.log));
   }
 
@@ -35,6 +34,11 @@ export class HttpMoviesService {
 
   patchMovie(movie: Partial<Movie>): Observable<Movie>{
     return this.http.patch<Movie>(this.url + '/' + movie.id, movie)
+      .pipe(tap(console.log));
+  }
+
+  deleteMovie(id: string): Observable<{}>{
+    return this.http.delete<{}>(this.url + '/' + id)
       .pipe(tap(console.log));
   }
 }

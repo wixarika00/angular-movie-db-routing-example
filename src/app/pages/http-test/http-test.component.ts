@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpMoviesService } from '../../services/http-movies.service';
 import { Movie } from '../../models/movie';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-http-test',
@@ -51,5 +52,7 @@ export class HttpTestComponent {
     this.http.patchMovie(movie).subscribe();
   }
 
-  delete() {}
+  delete() {
+    this.http.deleteMovie('54').subscribe();
+  }
 }
