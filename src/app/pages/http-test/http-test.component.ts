@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./http-test.component.css'],
 })
 export class HttpTestComponent {
+  errorMessage: string;
   constructor(private http: HttpMoviesService) {}
 
   get() {
@@ -57,6 +58,8 @@ export class HttpTestComponent {
   }
 
   error() {
-    this.http.makeError().subscribe();
+    this.http
+      .makeError()
+      .subscribe({ error: (err: string) => (this.errorMessage = err) });
   }
 }
