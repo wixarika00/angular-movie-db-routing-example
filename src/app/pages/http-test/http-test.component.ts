@@ -66,4 +66,8 @@ export class HttpTestComponent {
   headers() {
     this.http.headers().subscribe();
   }
+
+  params() {
+    this.http.params().subscribe();
+  }
 }
