@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpResponse,
+} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Movie } from '../models/movie';
 import { catchError, tap } from 'rxjs/operators';
@@ -27,19 +32,20 @@ export class HttpMoviesService {
     return this.http.post<Movie>(this.url, movie).pipe(tap(console.log));
   }
 
-  putMovie(movie: Movie): Observable<Movie>{
-    return this.http.put<Movie>(this.url + '/' + movie.id, movie)
+  putMovie(movie: Movie): Observable<Movie> {
+    return this.http
+      .put<Movie>(this.url + '/' + movie.id, movie)
       .pipe(tap(console.log));
   }
 
-  patchMovie(movie: Partial<Movie>): Observable<Movie>{
-    return this.http.patch<Movie>(this.url + '/' + movie.id, movie)
+  patchMovie(movie: Partial<Movie>): Observable<Movie> {
+    return this.http
+      .patch<Movie>(this.url + '/' + movie.id, movie)
       .pipe(tap(console.log));
   }
 
-  deleteMovie(id: string): Observable<{}>{
-    return this.http.delete<{}>(this.url + '/' + id)
-      .pipe(tap(console.log));
+  deleteMovie(id: string): Observable<{}> {
+    return this.http.delete<{}>(this.url + '/' + id).pipe(tap(console.log));
   }
 
   makeError(): Observable<HttpErrorResponse> {
@@ -48,12 +54,31 @@ export class HttpMoviesService {
       .pipe(tap(console.log), catchError(this.handleError));
   }
 
-  private handleError(error: HttpErrorResponse): Observable<never>{
+  private handleError(error: HttpErrorResponse): Observable<never> {
     console.error(
       `Name: ${error.name} \n` +
-      `Message: ${error.message} \n` +
-      `Returned code: ${error.status} \n`
+        `Message: ${error.message} \n` +
+        `Returned code: ${error.status} \n`
     );
     return throwError('Something bad happened; please try again later.');
+  }
+
+  headers(): Observable<HttpResponse<Movie[]>> {
+    const myHeaders = new HttpHeaders({
+      Authorizations: 'my_token',
+      'Content-Type': 'application/json',
+      'X-Custom-Header': 'zacznij_programowac',
+    });
+    return this.http
+      .get<Movie[]>(this.url, { observe: 'response', headers: myHeaders })
+      .pipe(
+        tap((res: HttpResponse<Movie[]>) => {
+          console.log(res.headers.keys());
+          console.log(res.headers.get('Cache-Control'));
+          console.log(res.headers.get('Content-Type'));
+          console.log(res.headers.get('Expires'));
+          console.log(res.headers.get('Pragma'));
+        })
+      );
   }
 }
