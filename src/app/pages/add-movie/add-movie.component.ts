@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-movie',
   templateUrl: './add-movie.component.html',
-  styleUrls: ['./add-movie.component.css']
+  styleUrls: ['./add-movie.component.css'],
 })
 export class AddMovieComponent implements OnInit {
+  model: Partial<Movie> = {};
 
-  model: Partial<Movie>;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-    this.model = { title: 'Jakiś film' };
-  }
+  ngOnInit(): void {}
 
-  send(movieForm: NgForm) {
-    console.log(movieForm);
+  send() {
+    console.log(this.model);
   }
 }
